@@ -1,0 +1,20 @@
+{
+	"levelup_long": {
+		"sounds": [
+			"fabrication:levelup_long"
+		],
+		"subtitle": "subtitles.entity.player.levelup"
+	},
+	"oof": {
+		"sounds": [
+			"fabrication:oof"
+		],
+		"subtitle": "subtitles.entity.player.hurt"
+	},
+	"absorption_hurt": {
+		"sounds": [
+			"fabrication:absorption_hurt"
+		],
+		"subtitle": "Player absorps"
+	}
+}

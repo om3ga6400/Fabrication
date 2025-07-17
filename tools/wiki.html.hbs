@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Fabrication &amp; Forgery</title>
+	<style>
+		body {
+			margin: 0;
+			font-family: 'Fira Sans', sans-serif;
+			background: #263238;
+			color: #ECEFF1;
+			line-height: 1.4;
+			font-size: 16px;
+			padding-bottom: 80vh;
+		}
+		code {
+			font-family: 'Fira Mono', monospace;
+			background: rgba(0, 0, 0, 0.2);
+			padding: .125em;
+			font-size: .75em;
+			border-radius: 2px;
+		}
+		p, ul {
+			max-width: 640px;
+		}
+		.banner {
+			width: 100vw;
+			height: 25vw;
+		}
+		.inner {
+			max-width: 960px;
+			padding: 20px 8px;
+			margin: auto;
+		}
+		h1, h2 {
+			margin-bottom: 0;
+		}
+		h1 {
+			border-bottom: 2px currentColor solid;
+			margin-top: 0;
+		}
+		h2 {
+			margin-top: 0;
+		}
+		.pad {
+			padding-top: 24px;
+		}
+		a:any-link {
+			color: #64FFDA;
+		}
+		.media {
+			width: 854px;
+			height: 480px;
+			max-width: calc(100vw - 64px);
+			max-height: calc((100vw - 64px) * (9 / 16));
+			box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+		}
+		.indent {
+			padding-left: 24px;
+			padding-right: 24px;
+		}
+		.sides-either {
+			color: #5FF;
+		}
+		.sides-client_only {
+			color: #FA0;
+		}
+		.sides-server_only {
+			color: #F5F;
+		}
+		.sides-server_and_client {
+			color: #F55;
+		}
+		.sides-server_only_with_client_helper {
+			color: #5F5;
+		}
+		#sidebar-toc {
+			display: none;
+		}
+		.tocent {
+			background-image: linear-gradient(to right, #FFF3, #FFF0);
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: 0px 100%;
+			padding: 2px;
+			transition: background-size 0.6s;
+		}
+		li.tocent {
+			padding-left: 4px;
+			list-style-position: inside;
+		}
+		.active {
+			background-size: 300px 100%;
+		}
+		ul {
+			padding-left: 20px;
+		}
+		del {
+			color: #607D8B;
+		}
+		@media(max-width: 960px) {
+			.indent {
+				padding-left: 12px;
+				padding-right: 12px;
+			}
+			.media {
+				max-width: calc(100vw - 40px);
+				max-height: calc((100vw - 40px) * (9 / 16));
+			}
+		}
+		@media(min-width: 1280px) {
+			.yescript #toc {
+				display: none;
+			}
+			.yescript #sidebar-toc {
+				display: block;
+				position: absolute;
+				top: calc(25vw + 8px);
+				left: 8px;
+				max-height: calc(100vh - (25vw + 8px));
+				overflow-y: auto;
+				width: calc(100% - 1056px);
+			}
+			#sidebar-toc.fixed {
+				position: fixed;
+				top: 8px;
+				max-height: 100vh;
+			}
+			.yescript .inner {
+				margin-left: auto;
+				margin-right: 64px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<a name="intro"></a>
+	<img class="banner" src="https://unascribed.com/fabrication/banner.svg?v=2"/>
+	<div id="sidebar-toc">
+	<ul style="margin: 0; padding-left: 0">
+		<li id="intro-tocent" class="tocent"><a href="#intro">Introduction</a></li>
+		<li id="faq-tocent" class="tocent"><a href="#faq">FAQ</a></li>
+	</ul>
+	{{#sections_incl_meta}}
+	<details>
+		<summary id="{{key}}-tocent" class="tocent"><a href="#{{key}}">{{name}}</a></summary>
+		<ul style="margin: 0">
+			{{#features_incl_meta}}
+			<li id="{{key}}-tocent" class="tocent"><a href="#{{key}}">{{name}}</a>{{#new}} {{#brand_new}}<b>{{/brand_new}}New in v{{since}}{{#brand_new}}</b>{{/brand_new}}{{/new}}</li>
+			{{/features_incl_meta}}
+		</ul>
+	</details>
+	{{/sections_incl_meta}}
+	</div>
+	<script>
+		document.body.classList.add('yescript');
+		let banner = document.querySelector('.banner');
+		let toc = document.querySelector('#sidebar-toc');
+		let keys = [
+			"intro", "faq", {{#sections_incl_meta}}"{{{key}}}", {{#features_incl_meta}}"{{{key}}}", {{/features_incl_meta}}{{/sections_incl_meta}}
+		];
+		function setTarget(target){
+			var index = window.location.href.lastIndexOf('#');
+			window.history.pushState("", "",index == -1 ?window.location.href:window.location.href.slice(0,index)+'#'+target);
+		}
+		document.addEventListener('keydown',press=>{
+			let index = window.location.href.lastIndexOf('#');
+			if (index !== -1) {
+				for(let i = 0; i<keys.length-1; i++){
+					if (keys[i] === window.location.href.slice(index+1, window.location.href.length)){
+						if(press.keyCode === 40 || (press.keyCode === 38 && i !== 0)){
+							let j = press.keyCode === 40 ? 1 : -1;
+						let ele = document.getElementById(keys[i+j]+"-outer");
+							ele.scrollIntoView();
+							setTarget(keys[i+j]);
+							press.preventDefault();
+						}
+						break;
+					}
+				}
+			}else{
+				window.history.pushState("", "",window.location.href+'#');
+				press.preventDefault();
+			}
+		 });
+		document.addEventListener('scroll', () => {
+			if (banner.getBoundingClientRect().bottom+8 < 0) {
+				toc.classList.add("fixed");
+			} else {
+				toc.classList.remove("fixed");
+			}
+			keys.forEach((k) => {
+				let ele = document.getElementById(k+"-outer");
+				let tocent = document.getElementById(k+"-tocent");
+				let rect = ele.getBoundingClientRect();
+				if ((k === 'intro' || rect.top <= 100) && rect.bottom > 100) {
+					tocent.classList.add("active");
+					setTarget(k);
+					if (tocent.nodeName === "SUMMARY" && !tocent.parentElement.open) {
+						tocent.parentElement.dataset.openDueToScroll = true;
+						tocent.parentElement.open = true;
+					}
+				} else {
+					tocent.classList.remove("active");
+					if (tocent.nodeName === "SUMMARY") {
+						if (tocent.parentElement.dataset.openDueToScroll) {
+							tocent.parentElement.open = false;
+						}
+						delete tocent.parentElement.dataset.openDueToScroll;
+					}
+				}
+			});
+		});
+	</script>
+	<div class="inner">
+		<div id="intro-outer">
+			<p>
+				<b><a href="https://www.curseforge.com/minecraft/mc-mods/fabrication">Fabrication</a></b> is a huge collection of vanilla tweaks and small features for Minecraft 1.16+. <b><a href="https://www.curseforge.com/minecraft/mc-mods/forgery">Forgery</a></b> is a version of Fabrication specially distorted to work under Forge rather than Fabric.
+			</p>
+			<p><em>{{#past_feature_counts}}<del style="font-size: {{size}}em">{{count}}</del> {{/past_feature_counts}}</em><strong>{{feature_count}}</strong> features and counting.</p>
+		</div>
+		<span id="toc">
+		<h1>Table of Contents</h1>
+		<p>
+		Click arrows to expand.
+		</p>
+		<div style="padding: 8px">
+		<ul style="margin: 0; padding-left: 0">
+			<li><a href="#faq">FAQ</a></li>
+		</ul>
+		{{#sections_incl_meta}}
+		<details>
+			<summary><a href="#{{key}}">{{name}}</a></summary>
+			<ul style="margin: 0">
+				{{#features_incl_meta}}
+				<li><a href="#{{key}}">{{name}}</a>{{#new}} {{#brand_new}}<b>{{/brand_new}}New in v{{since}}{{#brand_new}}</b>{{/brand_new}}{{/new}}</li>
+				{{/features_incl_meta}}
+			</ul>
+		</details>
+		{{/sections_incl_meta}}
+		</div>
+		</span>
+		<div id="faq-outer" class="pad">
+		<a id="faq"></a>
+		<h1>FAQ</h1>
+		<div class="pad">
+		<h2>Will you add <code>$THING</code>?</h2>
+		<p>
+			Probably not. I have a huge workload even beyond Fabrication, and the Fabrication backlog is extremely large by this point. You can still <a href="https://github.com/unascribed/Fabrication-Features/issues/new/choose">open an issue</a> and receive your judgement. If you make a PR then it will likely be accepted.
+		</p>
+		<h2>Why the name Fabrication?</h2>
+		<p>
+			Naming mods is hard, and naming things with no real topic or theme is even harder. So I just named it after the first word to come to mind while setting up the Fabric workspace. The "full" name is "A Total Fabrication", and the logo alludes to "Fabric Vacation".
+		</p>
+		<h2>Why the name Forgery?</h2>
+		<p>
+			For the parallel with Fabrication. The "full" name is "A Complete Forgery".
+		</p>
+		</div>
+		</div>
+		{{#sections_incl_meta}}
+		<div id="{{key}}-outer" class="pad">
+		<a id="{{key}}"></a>
+		<h1>{{name}}</h1>
+		<div>
+		{{#features_incl_meta}}
+		<div id="{{key}}-outer" class="pad">
+		<a id="{{key}}"></a>
+		<h2>{{name}}</h2>
+		<div class="indent">
+		{{^keyless}}<b>Key</b>: <code>{{key}}</code><br/>{{/keyless}}
+		{{#sides_friendly}}<b class="sides-{{../sides}}">{{this}}</b><br/>{{/sides_friendly}}
+		{{#since}}<b class="since">Added in v{{this}}{{#../new}} (New{{#../brand_new}}!{{/../brand_new}}){{/../new}}</b><br/>{{/since}}
+		{{{desc_html}}}
+		{{#link_url}}
+		<p>
+			<a href="{{../link_url}}">{{../link_text}}</a>
+		</p>
+		{{/link_url}}
+		{{#media}}
+		<h3>{{../media_text}}</h3>
+		{{#../media_video}}
+			<video class="media" src="{{../../media}}" poster="{{../../media_poster}}" controls preload="none"></video>
+		{{/../media_video}}
+		{{^../media_video}}
+			<img class="media" src="{{../media}}"/>
+		{{/../media_video}}
+		{{/media}}
+		{{#extra_media}}
+		<h3>{{../extra_media_text}}</h3>
+		{{#../extra_media_video}}
+			<video class="media" src="{{../../extra_media}}" poster="{{../../extra_media_poster}}" controls preload="none"></video>
+		{{/../extra_media_video}}
+		{{^../extra_media_video}}
+			<img class="media" src="{{../extra_media}}"/>
+		{{/../extra_media_video}}
+		{{/extra_media}}
+		</div>
+		</div>
+		{{/features_incl_meta}}
+		</div>
+		</div>
+		{{/sections_incl_meta}}
+	</div>
+</body>
+</html>

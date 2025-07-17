@@ -1,0 +1,32 @@
+# This is not actually a YAML file; it's only .yml for syntax highlighting.
+# Tab indentation *must* be used.
+
+mechanics.extra.colorful_redstone:
+	name: Colorful Redstone
+	since: 2.3.0
+	desc:
+		Redstone on top of wool will not connect to redstone on top of a different color of wool.
+
+		Experimental. Once sufficiently tested, will be moved out of Extra.
+
+mechanics.extra.swap_conflicting_enchants:
+	name: Swap Conflicting Enchants
+	since: 3.0.0
+	sides: server_only
+	fscript: PLAYER_ENTITY
+	fscript_default: sneaky
+	media: https://unascribed.com/fabrication/swap_conflicting_enchants.mp4
+	desc:
+		When adding enchants that would normally not be compatible it will instead get added in an inactive state.
+		Conflicting enchants can be swapped on the go by right-clicking the item or pressing a keybind while sneaking.
+
+mechanics.extra.weaponized_pearls:
+	name: Weaponized Pearls
+	since: 3.0.0
+	sides: server_only
+	fscript: THROWN_ITEM_ENTITY
+	desc:
+		Pearls will teleport entities they hit and pull nearby ones.
+
+# kate: space-indent off
+# vim: noai:noet

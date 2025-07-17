@@ -1,0 +1,141 @@
+# This is not actually a YAML file; it's only .yml for syntax highlighting.
+# Tab indentation *must* be used.
+
+weird_tweaks.extra.creepers_explode_when_on_fire:
+	name: Creepers Explode When On Fire
+	since: 1.0
+	sides: server_only
+	fscript: living_entity
+	fscript_default: on_fire
+	media: https://unascribed.com/fabrication/creepers_explode_when_on_fire.mp4
+	desc:
+		Causes creepers to light their fuses when lit on fire. Just because.
+
+weird_tweaks.extra.photoallergic_creepers:
+	name: Photoallergic Creepers
+	since: 1.2.4
+	sides: server_only
+	media: https://unascribed.com/fabrication/photoallergic_creepers.mp4
+	desc:
+		Creepers burn in sunlight. Very dangerous in combination with Creepers Explode When On Fire.
+
+		Takes precedence over Photoresistant Mobs if that is also enabled, allowing you to make only
+		creepers burn in sunlight.
+
+weird_tweaks.extra.photoresistant_mobs:
+	name: Photoresistant Mobs
+	since: 1.2.4
+	sides: server_only
+	media: https://unascribed.com/fabrication/photoresistant_mobs.mp4
+	desc:
+		Mobs don't burn in sunlight.
+
+weird_tweaks.extra.underwater_explosions:
+	name: Underwater Explosions
+	since: 1.3.2
+	sides: server_only
+	media: https://unascribed.com/fabrication/underwater_explosions.mp4
+	desc:
+		TNT and other explosives do block damage even underwater.
+
+weird_tweaks.extra.villagers_follow_emerald_blocks:
+	name: Villagers Follow Emerald Blocks
+	since: 1.4.0
+	sides: server_only
+	desc:
+		Villagers will follow players holding emerald blocks.
+
+weird_tweaks.extra.disable_night_skip:
+	name: Disable Night Skip
+	since: 1.4.0
+	sides: server_only
+	fscript: server_player_entity
+	media: https://unascribed.com/fabrication/disable_night_skip.mp4
+	desc:
+		Prevents beds from skipping the night.
+
+weird_tweaks.extra.foliage_creepers:
+	name: Foliage Creepers
+	since: 2.1.0
+	sides: client_only
+	desc:
+		Creepers will take on the foliage color of the biome they're in.
+
+weird_tweaks.extra.villager_trades_reset:
+	name: Villager Trades Reset
+	since: 2.1.0
+	sides: server_only
+	desc:
+		Instead of restocking villagers will completely reset their trades.
+		This also soft-limits the trades to the villager's level (one trade of each level).
+		Cartographers new always sell the nearest map of a type.
+
+weird_tweaks.extra.no_dolphin_theft:
+	name: No Dolphin Theft
+	since: 2.1.0
+	sides: server_only
+	desc:
+		Prevents dolphins from picking up items.
+
+weird_tweaks.extra.thrown_buckets_empty_lava_cauldrons:
+	name: Thrown Buckets Empty Lava Cauldrons
+	since: 2.1.0
+	sides: server_only
+	desc:
+		Throwing an bucket at a lava cauldron will pickup the lava.
+
+weird_tweaks.extra.source_dependent_iframes:
+	name: Source Dependent Invulnerability Frames
+	since: 2.1.0
+	sides: server_only
+	fscript: living_entity
+	extra_fscript: damage_source+~damage_source:DAMAGE_SOURCE+Damage Source
+	media: https://unascribed.com/fabrication/source_dependent_iframes.mp4
+	desc:
+		Allows entities to take damage multiple times if it's from multiple sources.
+
+weird_tweaks.extra.encroaching_emeralds:
+	name: Encroaching Emeralds
+	since: 2.3.0
+	sides: server_only
+	desc:
+		Emeralds spawn in all biomes which have ores.
+
+weird_tweaks.extra.disable_lightning_fire:
+	name: Disable Lightning Fire
+	since: 2.3.0
+	sides: server_only
+	desc:
+		Prevents lightning from creating fire.
+
+weird_tweaks.extra.curable_piglins:
+	name: Curable Piglins
+	since: 3.0.0
+	sides: server_only
+	desc:
+		Piglins and hoglins can be made immune with a golden apple or cured if they also have weakness.
+
+weird_tweaks.extra.flimsy_tripwire:
+	name: Flimsy Tripwire
+	since: 3.0.0
+	sides: server_only
+	desc:
+		Tripwire breaks after being activated.
+
+weird_tweaks.extra.entities_sink_in_falling_fluids:
+	name: Entities Sink In Falling Fluids
+	since: 3.2.0
+	sides: server_only
+	fscript: living_entity
+	desc:
+		Entities rapidly sink in fluids that are flowing downwards. still and horizontal flowing fluids are unaffected.
+
+weird_tweaks.extra.disable_lightning_burn:
+	name: Disable Lightning Burn
+	since: 3.4.7
+	sides: server_only
+	desc:
+		Prevents lightning catching entities aflame.
+
+# kate: space-indent off
+# vim: noai:noet

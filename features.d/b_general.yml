@@ -1,0 +1,32 @@
+# This is not actually a YAML file; it's only .yml for syntax highlighting.
+# Tab indentation *must* be used.
+
+general:
+	name: General
+	section: true
+	since: 1.0
+	desc:
+		Broad features and global settings.
+
+general.reduced_motion:
+	name: Reduced Motion
+	since: 1.2
+	sides: client_only
+	desc:
+		Disables high-motion animations in the Fabrication config screen.
+
+general.dark_mode:
+	name: Dark Mode
+	since: 2.0.0
+	sides: client_only
+	desc:
+		Makes the config screen darker.
+
+general.limit_runtime_configs:
+	name: Limit Runtime Configs
+	since: 3.0.0
+	desc:
+		Makes the game a teensy bit faster, but requires a restart to change features.
+
+# kate: space-indent off
+# vim: noai:noet

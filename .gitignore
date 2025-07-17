@@ -1,0 +1,39 @@
+# gradle
+
+.gradle/
+build/
+out/
+classes/
+
+# eclipse
+
+*.launch
+
+# idea
+
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# vscode
+
+.settings/
+.vscode/
+bin/
+.classpath
+.project
+
+# fabric
+
+run/
+
+# project-specific
+src/main/resources/default_features_config.ini
+test/
+features.json
+curse-*.html
+wiki.html
+node_modules
+changelog.md
+modrinth.md

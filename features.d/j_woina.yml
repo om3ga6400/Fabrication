@@ -1,0 +1,132 @@
+# This is not actually a YAML file; it's only .yml for syntax highlighting.
+# Tab indentation *must* be used.
+
+woina:
+	name: What's Old Is New Again
+	section: true
+	short_name: W.O.I.N.A.
+	since: 1.2.4
+	desc:
+		Forward ports of forgotten tidbits.
+
+woina.block_logo:
+	name: Block Logo
+	since: 1.2.4
+	sides: client_only
+	media: https://unascribed.com/fabrication/block_logo.mp4
+	desc:
+		Resurrects the Beta 1.2-era animated falling block logo. Because it looked sweet and it is
+		shameful they removed it.
+
+		The block logo is completely customizable in config/fabrication/block_logo.png and
+		config/fabrication/block_logo.ini. The default is identical to how it was in Beta 1.2.
+
+woina.old_lava:
+	name: Old Lava
+	since: 1.2.4
+	sides: client_only
+	media: https://unascribed.com/fabrication/old_lava.mp4
+	desc:
+		Resurrects the old procedural lava texture from 1.4. Replace your molten cheese with pasta
+		sauce today! HAYO!
+
+woina.classic_block_drops:
+	name: Classic Block Drops
+	since: 1.2.4
+	sides: client_only
+	media: https://unascribed.com/fabrication/classic_block_drops.mp4
+	extra_media: https://unascribed.com/fabrication/survival_test.mp4
+	extra_media_text: Survival Test video, for reference
+	short_desc: Draws block drops with a mipmapped or small portion of the texture
+	desc:
+		Back in Survival Test, likely in the interest of keeping a consistent pixel density in the
+		world, block drops were drawn with an 8x8 portion of the block texture. This didn't always
+		work well back then, and rather than fix things up and design textures with it in mind, it
+		was simply removed.
+
+		This option uses a whitelist in config/fabrication/classic_block_drops.ini to emulate the
+		old behavior, and for anything not whitelisted, uses mipmapped textures.
+
+		This looks pretty neat.
+
+woina.blinking_drops:
+	name: Blinking Drops
+	since: 1.2.4
+	sides: client_only
+	media: https://unascribed.com/fabrication/blinking_drops.mp4
+	extra_media: https://unascribed.com/fabrication/survival_test.mp4
+	extra_media_text: Survival Test video, for reference
+	short_desc: Drops blink white like they did in Survival Test
+	desc:
+		Back in Survival Test, drops blinked white to make them stand out more. This is an
+		implementation of that.
+
+		If Utility > Despawning Items Blink is enabled, that tweak's disappear-flashing will be
+		disabled, and instead this tweak's white flashing will get faster and faster as despawn
+		approaches.
+
+woina.dropped_items_dont_stack:
+	name: Dropped Items Don't Stack
+	since: 1.4.0
+	sides: server_only
+	media: https://unascribed.com/fabrication/dropped_items_dont_stack.mp4
+	desc:
+		When dropping items of the same type they don't merge into a bigger stack.
+
+woina.yellow_button_hover:
+	name: Yellow Button Hover
+	since: 2.1.0
+	sides: client_only
+	media: https://unascribed.com/fabrication/yellow_button_hover.mp4
+	desc:
+		Hovered buttons will have yellow text.
+
+woina.old_background_shade:
+	name: Old Background Shade
+	since: 3.0.0
+	sides: client_only
+	desc:
+		Inventories, pause and other menus will have a blue gradient.
+
+woina.more_explosion_particles:
+	name: More Explosion Particles
+	since: 3.0.0
+	sides: client_only
+	media: https://unascribed.com/fabrication/more_explosion_particles.mp4
+	desc:
+		Adds smoke and poof particles to explosions.
+
+woina.old_armor_scale:
+	name: Old Armor Scale
+	since: 3.0.0
+	sides: server_only
+	fscript: living_entity
+	desc:
+		Armor value is reduced with durability.
+
+woina.old_armor:
+	name: Old Armor
+	since: 3.0.0
+	sides: server_only
+	fscript: living_entity
+	desc:
+		All armor has the same protection.
+
+woina.void_fog_particles:
+	name: Void Fog Particles
+	since: 3.0.0
+	sides: client_only
+	media: https://unascribed.com/fabrication/void_fog_particles.mp4
+	desc:
+		Returns void fog particles from pre 1.8.
+
+woina.end_portal_parallax:
+	name: End Portal Parallax
+	since: 3.0.1
+	sides: client_only
+	desc:
+		Old end portal texture, may not be entirely accurate.
+		Will not work unless the game is restarted, requires legacy GL and may not work on some systems.
+
+# kate: space-indent off
+# vim: noai:noet

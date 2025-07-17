@@ -1,0 +1,166 @@
+# This is not actually a YAML file; it's only .yml for syntax highlighting.
+# Tab indentation *must* be used.
+
+woina.extra.janky_arm:
+	name: Janky Arm
+	since: 1.2.8
+	sides: client_only
+	media: https://unascribed.com/fabrication/janky_arm.png
+	extra_media: https://unascribed.com/fabrication/survival_test.mp4
+	extra_media_text: Survival Test video, for reference
+	desc:
+		Brings back Survival Test arm rotation.
+
+		"Why?" Why not.
+
+woina.extra.flat_items:
+	name: Flat Items
+	since: 1.2.8
+	sides: client_only
+	media: https://unascribed.com/fabrication/flat_items.png
+	desc:
+		Brings back Indev flat first-person item models.
+
+		"Why?" Why not.
+
+woina.extra.billboard_drops:
+	name: Billboard Drops
+	since: 1.2.8
+	sides: client_only
+	media: https://unascribed.com/fabrication/billboard_drops.mp4
+	desc:
+		Brings back billboarded flat item drops like on Fast graphics prior to 1.8 or like always
+		prior to 1.4.
+
+woina.extra.oof:
+	name: Oof
+	since: 1.2.8
+	sides: client_only
+	media: https://unascribed.com/fabrication/oof.mp4
+	desc:
+		Brings back the old "Oof" hurt sound. Unlike the resource pack approach, this is
+		player-specific rather than replacing the generic fleshy damage sound, so it won't result
+		in random things Oof-ing.
+
+woina.extra.no_experience:
+	name: No Experience
+	since: 1.3.3
+	sides: server_only_with_client_helper
+	desc:
+		Removes experience. Anvils become free and enchanting only costs lapis.
+
+woina.extra.old_sheep_shear:
+	name: Old Sheep Shear
+	since: 1.3.4
+	sides: server_only
+	media: https://unascribed.com/fabrication/old_sheep_shear.mp4
+	desc:
+		Sheep drop wool when punched.
+
+woina.extra.no_sprint:
+	name: No Sprint
+	since: 1.4.0
+	sides: server_only
+	fscript: entity
+	fscript_default: !submerged_in_water
+	desc:
+		Disable sprinting.
+		Note that for taggable_players/scripting, sprinting will not be interrupted.
+
+woina.extra.instant_eat:
+	name: Instant Eat
+	since: 1.4.0
+	sides: server_only
+	media: https://unascribed.com/fabrication/instant_eat.mp4
+	desc:
+		Eating food is instant.
+
+woina.extra.dirt_screen:
+	name: Dirt Screen
+	since: 1.4.0
+	sides: client_only
+	desc:
+		Replaces the panorama background of the title screen with the old dirt one.
+
+woina.extra.old_tooltip:
+	name: Old Tooltip
+	since: 1.4.0
+	sides: client_only
+	media: https://unascribed.com/fabrication/old_tooltip.mp4
+	desc:
+		Ressurects the old inventory tooltip from the beta days.
+
+woina.extra.instant_bow:
+	name: Instant Bow
+	since: 1.4.0
+	sides: server_only
+	fscript: player_entity
+	media: https://unascribed.com/fabrication/instant_bow.mp4
+	desc:
+		Bow fires arrows instantly upon clicking.
+
+woina.extra.no_hand_sway:
+	name: No Hand Sway
+	since: 1.4.0
+	sides: client_only
+	media: https://unascribed.com/fabrication/no_hand_sway.mp4
+	desc:
+		Prevents first-person hands from gradually transitioning from the last camera position.
+
+woina.extra.full_enchanting_cost:
+	name: Full Enchanting Cost
+	since: 2.1.0
+	sides: server_only
+	desc:
+		Enchanting consumes all of the xp required for an enchant.
+		For example a 30 level enchant will consume 30 levels instead of 3.
+
+woina.extra.no_player_death_animation:
+	name: No Player Death Animation
+	since: 2.1.0
+	sides: client_only
+	desc:
+		Players stay upright when killed.
+
+woina.extra.no_stance_transition:
+	name: No Stance Transition
+	since: 3.0.0
+	sides: client_only
+	desc:
+		Removes the gradual crouch / crawl camera transition.
+
+woina.extra.no_swim:
+	name: No Swim
+	since: 3.0.0
+	sides: server_only
+	fscript: entity
+	desc:
+		Disable swimming.
+
+woina.extra.void_fog:
+	name: Void Fog
+	since: 3.0.1
+	sides: client_only
+	desc:
+		Returns void fog from pre 1.8.
+
+woina.extra.billboard_drops_2d:
+	name: Billboard Drops 2D
+	since: 3.0.4
+	sides: client_only
+	desc:
+		Brings back billboarded flat item drops like on Fast graphics prior to 1.8 or like always
+		prior to 1.4.
+		Actually renders them in 2D which may create issues, but has a performance benefit.
+
+woina.extra.old_lava_scaling:
+	name: Old Lava Scaling
+	since: 3.1.2
+	sides: client_only
+	extend: *.old_lava
+	desc:
+		Resurrects the old procedural lava texture from 1.4.
+		Scales with resource pack resolutions. Will have a performance impact on higher resolutions.
+
+# kate: space-indent off
+# vim: noai:noet
